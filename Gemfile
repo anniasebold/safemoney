@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'rails_admin', '~> 2.0', '>= 2.0.2'
 gem 'pagy', '~> 3.7', '>= 3.7.5'
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
 # Use Capistrano for deployment
