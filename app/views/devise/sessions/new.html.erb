@@ -1,25 +1,52 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<%= stylesheet_link_tag "devise" %>
+<div class="login-form">
+    <div class="form">
+      <div class="alert">
+      <%= render "devise/shared/toast_error" %>
     </div>
-  <% end %>
+      <h2 class="text-center">Login</h2>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <div class="form-group">
+            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: :email, autocomplete: "email" %>
+        </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+        <div class="form-group">
+          <div class="field">
+            <%= f.password_field :password, class: "form-control", placeholder: "Senha", autocomplete: "current-password" %>
+         </div>
+        </div>
+
+        <div class="form-group">
+          <div class="check-box-remember">
+            <% if devise_mapping.rememberable? %>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label "Lembre-se de mim" %>
+              </div>
+            <% end %>
+          </div>
+          <div class="link-forgot">
+            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+              <%= link_to "Esqueceu sua senha?", new_password_path(resource_name) %><br/>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="actions">
+            <div>
+              <%= f.submit "Login", class: "btn btn-primary btn-block font-weight-bold" %><br>
+            </div>
+            <p class="text-center"> ou </p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+            <%= link_to "Registrar-se", new_registration_path(resource_name), class: "btn btn-light btn-block font-weight-bold" %><br/>
+          <% end %>
+        </div>
+    <% end %>
   </div>
-<% end %>
-<%= render "devise/shared/links" %>
+</div>
