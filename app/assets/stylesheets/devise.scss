@@ -2,32 +2,39 @@
   width: 450px;
   margin: 50px auto;
   font-family: 'Montserrat', sans-serif; 
-}
-
-.login-form h2 {
-  margin: 0 0 15px;
-}
-
-.login-form .form {
   margin-bottom: 15px;
   background: #F7F7F7;
   box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.3);
   padding: 30px;
 }
 
-.text-register {
-  text-align:center;
+.register-form {
+  width: 500px;
+  margin: 50px auto;
+  font-family: 'Montserrat', sans-serif; 
+  margin-bottom: 15px;
+  background: #F7F7F7;
+  box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.3);
+  padding: 30px;
 }
 
+.login-form h2 {
+  margin: 0 0 15px;
+}
 
-.check-box-remember {
-  font-size: 14px;
-  padding: 0px 0px 0px 5px;
+.form-check {
   display: inline-block !important;
 }
 
-.link-forgot {
+.lateral-links {
   font-size: 14px;
+  margin: 5px 0px 20px 0px;
+}
+
+.check-box-remember {
+  padding: 0px 0px 0px 5px;
+}
+
+.link-forgot {
   float: right;
-  text-align: right;
 }
