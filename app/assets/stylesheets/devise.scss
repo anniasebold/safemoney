@@ -28,7 +28,7 @@
 
 .lateral-links {
   font-size: 14px;
-  margin: 5px 0px 20px 0px;
+  margin: 0px 0px 20px 0px;
 }
 
 .check-box-remember {
@@ -37,4 +37,24 @@
 
 .link-forgot {
   float: right;
+}
+
+.position-form {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.form-control-placeholder {
+  position: absolute;
+  top: 0;
+  padding: 7px 0 0 13px;
+  transition: all 200ms;
+  opacity: 0.5;
+}
+
+.form-control:focus + .form-control-placeholder,
+.form-control:valid + .form-control-placeholder {
+  font-size: 80%;
+  transform: translate3d(0, -100%, 0);
+  opacity: 1;
 }

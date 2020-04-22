@@ -35,6 +35,7 @@ gem 'rails_admin', '~> 2.0', '>= 2.0.2'
 gem 'pagy', '~> 3.7', '>= 3.7.5'
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
+gem 'enumerize'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

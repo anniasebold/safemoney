@@ -3,47 +3,29 @@
   <div class="alert">
     <%= render "devise/shared/error_messages", resource: resource %>
   </div>
-  <h2 class="text-center">Cadastro</h2>
+  <h2 class="text-center form-group">Cadastro</h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
-    <div class="form-group">
-      <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Nome Completo", required: :required, autocomplete: "name" %>
+    <div class="form-group position-form">
+      <%= f.text_field :name, autofocus: true, class: "form-control", required: :required, autocomplete: "name" %>
+      <%= f.label :name, class: "form-control-placeholder" %>
     </div>
 
-    <div class="form-group">
-      <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: :email, required: :required, autocomplete: "email" %>
+    <div class="form-group position-form">
+      <%= f.email_field :email, autofocus: true, class: "form-control", required: :required, autocomplete: "email" %>
+      <%= f.label :email, class: "form-control-placeholder" %>
     </div>
 
-    <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <label class="input-group-text">Formação Acadêmica</label>
-          <select class="form-control">
-            <option selected>Escolha...</option>
-            <option>Ensino Fundamental Incompleto</option>
-            <option>Ensino Fundamental Completo</option>
-            <option>Ensino Médio Incompleto</option>
-            <option>Ensino Médio Completo</option>
-            <option>Graduação Incompleta</option>
-            <option>Graduação Completa</option>
-            <option>Pós-graduação Incompleta</option>
-            <option>Pós-graduação Completa</option>
-          </select>
-        </div>
-      </div>
+    <div class="form-group position-form">
+      <%= f.label :education %>
+      <%= f.select :education, options_for_select(User.education.options), {}, { class: "form-control" } %>
     </div>
 
-    <div class="form-group">
-      <%= f.password_field :password, class: "form-control", placeholder: "Senha", required: :required, autocomplete: "new-password" %>
-      <% if @minimum_password_length %>
-        <small class="form-text text-muted">No mínimo <%= @minimum_password_length %> caracteres</small>
-      <% end %>
+    <div class="form-group position-form">
+      <%= f.password_field :password, autofocus: true, class: "form-control", required: :required, autocomplete: "new-password" %>
+      <%= f.label :password, class: "form-control-placeholder" %>
+      <small class="form-text text-muted">No mínimo <%= @minimum_password_length %> caracteres</small>
     </div>
-
-    <div class="form-group">
-      <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirmação de Senha", autocomplete: "new-password" %><br>
-    </div>
-
+    
     <div class="form-group">
       <%= f.submit "Criar conta", class: "btn btn-primary btn-block font-weight-bold" %><br>
       <p class="text-center"> ou </p>

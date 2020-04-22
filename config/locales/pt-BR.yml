@@ -1,4 +1,15 @@
 pt-BR:
+  enumerize:
+    user:
+      education:
+          elementary_school_incomplete: Ensino Fundamental Incompleto
+          elementary_school_complete: Ensino Fundamental Completo
+          high_school_incomplete: Ensino Médio Incompleto
+          high_school_complete: Ensino Médio Completo
+          graduation_incomplete: Graduação Incompleta
+          graduation_complete: Graduação Completa
+          postgraduate_incomplete: Pós-graduação Incompleta
+          postgraduate_complete: Pós-graduação Completa
   activerecord:
     models:
       user:
@@ -14,8 +25,12 @@ pt-BR:
         email: Email
         name: Nome
         education: Formação Acadêmica
+        created_at: Criado em
+        updated_at: Atualizado em
       category:
         name: Nome
+        created_at: Criado em
+        updated_at: Atualizado em
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
