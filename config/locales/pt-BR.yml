@@ -18,6 +18,12 @@ pt-BR:
       category:
         one: Categoria
         other: Categorias
+      post:
+        one: Postagem
+        other: Postagens
+      post_category:
+        one: Categoria Postagem
+        other: Categorias Postagens
     attributes:
       user:
         password: Senha
@@ -31,6 +37,21 @@ pt-BR:
         name: Nome
         created_at: Criado em
         updated_at: Atualizado em
+        post_category: Categoria Postagem
+        post_categories: Categorias Postagens
+      post:
+        title: Título
+        text: Texto
+        user: Usuário
+        post_category: Categoria Postagem
+        post_categories: Categorias Postagens
+        category: Categoria
+        categories: Categorias
+        created_at: Criado em
+        updated_at: Atualizado em
+      post_category:
+        category: Categoria
+        post: Postagem
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

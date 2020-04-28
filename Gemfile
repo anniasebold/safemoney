@@ -36,6 +36,8 @@ gem 'pagy', '~> 3.7', '>= 3.7.5'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'enumerize'
+gem 'bootstrap-select-rails', '~> 1.6', '>= 1.6.3'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

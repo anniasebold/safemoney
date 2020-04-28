@@ -5,29 +5,35 @@
   </div>
   <h2 class="text-center form-group">Cadastro</h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <div class="form-group position-form">
+    <div class="form-group">
+      <%= f.label :name %>
       <%= f.text_field :name, autofocus: true, class: "form-control", required: :required, autocomplete: "name" %>
-      <%= f.label :name, class: "form-control-placeholder" %>
     </div>
 
-    <div class="form-group position-form">
+    <div class="form-group">
+      <%= f.label :email %>
       <%= f.email_field :email, autofocus: true, class: "form-control", required: :required, autocomplete: "email" %>
-      <%= f.label :email, class: "form-control-placeholder" %>
     </div>
 
-    <div class="form-group position-form">
+    <div class="form-group">
       <%= f.label :education %>
       <%= f.select :education, options_for_select(User.education.options), {}, { class: "form-control" } %>
     </div>
 
-    <div class="form-group position-form">
-      <%= f.password_field :password, autofocus: true, class: "form-control", required: :required, autocomplete: "new-password" %>
-      <%= f.label :password, class: "form-control-placeholder" %>
-      <small class="form-text text-muted">No mínimo <%= @minimum_password_length %> caracteres</small>
-    </div>
-    
     <div class="form-group">
-      <%= f.submit "Criar conta", class: "btn btn-primary btn-block font-weight-bold" %><br>
+      <%= f.label :password %>
+      <%= f.password_field :password, autofocus: true, class: "form-control", required: :required, autocomplete: "new-password" %>
+      <small class="form-text text-muted">No mínimo <%= @minimum_password_length %> caracteres</small><br>
+    </div>
+
+    <div class="form-group">
+      <% if controller_name != 'sessions' %>
+        <%= link_to "Ao continuar eu concordo com os Termos de Uso", "https://www.google.com/", class: "terms-service" %>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Cadastrar", class: "btn btn-primary btn-block font-weight-bold" %><br>
       <p class="text-center"> ou </p>
       </div>
     <div class="form-group">

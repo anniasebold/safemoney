@@ -1,0 +1,32 @@
+<h1>Criar Postagem</h1>
+<%= form_for @post do |post| %>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= post.label :categories %> 
+        <%= post.select(:category_ids, Category.all.collect{ |c| [c.name, c.id] }, { }, multiple: true, class: "form-control selectpicker" ) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= post.label :title %>
+        <%= post.text_field :title, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= post.label :text %>
+        <%= post.text_area :text, class: "form-control", size: "60x12" %> 
+      </div>
+    </div>
+  </div>
+
+  <%= post.submit "Criar Postagem", class: "btn btn-primary" %>
+<% end %> 
