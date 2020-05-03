@@ -43,8 +43,6 @@ pt-BR:
         title: Título
         text: Texto
         user: Usuário
-        post_category: Categoria Postagem
-        post_categories: Categorias Postagens
         category: Categoria
         categories: Categorias
         created_at: Criado em
@@ -68,7 +66,7 @@ pt-BR:
     - sex
     - sáb
     abbr_month_names:
-    - 
+    -
     - jan
     - fev
     - mar
@@ -94,7 +92,7 @@ pt-BR:
       long: "%d de %B de %Y"
       short: "%d de %B"
     month_names:
-    - 
+    -
     - janeiro
     - fevereiro
     - março
@@ -269,7 +267,7 @@ pt-BR:
     am: ''
     formats:
       default: "%a, %d de %B de %Y, %H:%M:%S %z"
-      long: "%d de %B de %Y, %H:%M"
+      long: "%d de %B de %Y às %H:%M"
       short: "%d de %B, %H:%M"
     pm: ''
   admin:

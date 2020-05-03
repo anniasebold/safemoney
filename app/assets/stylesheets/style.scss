@@ -1,5 +1,24 @@
 $montserrat: 'Montserrat', sans-serif;
 
+// Small devices
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+
+.container {
+  font-family: $montserrat
+}
+
+// LOGIN E CADASTRO
+ 
 .login-form {
   width: 450px;
   margin: 50px auto;
@@ -75,4 +94,49 @@ a:hover {
   font-size: 80%;
   transform: translate3d(0, -100%, 0);
   opacity: 1;
+}
+
+
+// POSTS
+
+#new-post ul {
+  list-style: none;
+  padding: 0px;
+}
+
+#new-post .container {
+  margin-top: 30px;
+}
+
+.badge-info {
+  font-size: 1em;
+  margin-bottom: 5px;
+}
+
+
+@mixin sm {
+   @media (min-width: #{$screen-sm-min}) {
+       @content;
+   }
+}
+
+// Medium devices
+@mixin md {
+   @media (min-width: #{$screen-md-min}) {
+       @content;
+   }
+}
+
+// Large devices
+@mixin lg {
+   @media (min-width: #{$screen-lg-min}) {
+       @content;
+   }
+}
+
+// Extra large devices
+@mixin xl {
+   @media (min-width: #{$screen-xl-min}) {
+       @content;
+   }
 }

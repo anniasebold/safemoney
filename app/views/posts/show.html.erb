@@ -1,7 +1,28 @@
-<div class="container">
+<div id="show-post">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <h1 class="mt-4"><%= @post.title %></h1>
 
-  <div class="row">
-    
+        <p class="lead">
+          por
+          <%= link_to @post.user.name, root_path %>
+        </p>
+
+        <%= t('activerecord.attributes.post.categories') %>
+        <% @post.categories.each do |categorie|  %>
+        <%= link_to categorie.name, root_path, class: 'badge badge-info'  %>
+        <% end %>
+
+        <hr>
+        <p>Postado em <%= l(@post.created_at, format: :long) %></p>
+        <hr>
+
+        <p class="lead">
+          <%= @post.text %>
+        </p>
+
+      </div>
+    </div>
   </div>
-  
 </div>
