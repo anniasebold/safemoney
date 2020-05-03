@@ -11,7 +11,7 @@
 
         <%= t('activerecord.attributes.post.categories') %>
         <% @post.categories.each do |categorie|  %>
-        <%= link_to categorie.name, root_path, class: 'badge badge-info'  %>
+          <%= link_to categorie.name, root_path, class: 'badge badge-info'  %>
         <% end %>
 
         <hr>
