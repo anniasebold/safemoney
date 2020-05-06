@@ -113,6 +113,18 @@ a:hover {
   margin-bottom: 5px;
 }
 
+.card-text {
+  margin-top: 10px;
+}
+
+.btn .read-more {
+  text-decoration: none;
+  color: white;
+}
+
+.btn .read-more a::hover {
+  color: #F5F5DC;
+}
 
 @mixin sm {
    @media (min-width: #{$screen-sm-min}) {

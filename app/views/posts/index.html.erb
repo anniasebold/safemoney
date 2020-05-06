@@ -1,0 +1,46 @@
+<div id="index-post">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h1 class="my-4">Todos os Posts</h1>
+
+        <% @post.each do |post| %>
+          <div class="card mb-4">
+            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+            <!-- Card header -->
+            <div class="card-header">
+              <h2 class="card-title"><%= post.title %></h2>
+              <% post.categories.each do |categorie| %>
+                <%= link_to categorie.name, root_path, class: 'badge badge-info'%>
+              <% end %>
+            </div>
+            <!-- Card body -->
+            <div class="card-body">
+              <p class="card-text"><%= post.text %></p>
+              <!-- <button class="btn btn-primary"> -->
+                <%= link_to "Leia mais", post_path(post.id), class: "btn btn-primary" %>
+              <!-- </button> -->
+            </div>
+            <!-- Card footer -->
+            <div class="card-footer text-muted">
+                Postado em <%= l(post.created_at, format: :long) %>
+                  por
+                <%= link_to post.user.name, root_path %>
+            </div>
+          </div>
+        <% end %>
+
+        <!-- Pagination -->
+        <ul class="pagination justify-content-center mb-4">
+          <li class="page-item">
+            <a class="page-link" href="#">&larr; Próxima</a>
+          </li>
+          <li class="page-item disabled">
+            <a class="page-link" href="#">Anterior &rarr;</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>
