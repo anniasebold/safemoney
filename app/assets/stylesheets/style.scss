@@ -1,43 +1,26 @@
 $montserrat: 'Montserrat', sans-serif;
 
-// Small devices
-$screen-sm-min: 576px;
-
-// Small tablets (portrait view)
-$screen-md-min: 768px;
-
-// Tablets and small desktops
-$screen-lg-min: 992px;
-
-// Large tablets and desktops
-$screen-xl-min: 1200px;
-
-
 .container {
   font-family: $montserrat
 }
 
 // LOGIN E CADASTRO
- 
-.login-form {
-  width: 450px;
+
+.login-form, .register-form {
   margin: 50px auto;
-  font-family: $montserrat;
   font-weight: normal;
   margin-bottom: 15px;
   background: #F7F7F7;
   box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.3);
   padding: 30px;
 }
+ 
+.login-form {
+  width: 450px;
+}
 
 .register-form {
   width: 500px;
-  margin: 50px auto;
-  font-family: $montserrat;
-  margin-bottom: 15px;
-  background: #F7F7F7;
-  box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.3);
-  padding: 30px;
 }
 
 .login-form h2 {
@@ -109,22 +92,24 @@ a:hover {
 }
 
 .badge-info {
-  font-size: 1em;
+  font-size: 0.92em;
   margin-bottom: 5px;
 }
 
-.card-text {
-  margin-top: 10px;
-}
 
-.btn .read-more {
-  text-decoration: none;
-  color: white;
-}
 
-.btn .read-more a::hover {
-  color: #F5F5DC;
-}
+
+// Small devices
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
 
 @mixin sm {
    @media (min-width: #{$screen-sm-min}) {

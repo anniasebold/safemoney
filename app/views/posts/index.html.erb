@@ -17,9 +17,11 @@
             <!-- Card body -->
             <div class="card-body">
               <p class="card-text"><%= post.text %></p>
-              <!-- <button class="btn btn-primary"> -->
-                <%= link_to "Leia mais", post_path(post.id), class: "btn btn-primary" %>
-              <!-- </button> -->
+              <!-- Btn Read More -->
+              <%= link_to post_path(post.id), class:"btn btn-primary" do %>
+                Leia mais
+                <i class="fas fa-arrow-right"></i>
+              <% end %>
             </div>
             <!-- Card footer -->
             <div class="card-footer text-muted">

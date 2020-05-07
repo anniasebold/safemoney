@@ -1,38 +1,40 @@
 <div class="login-form">
-  <div class="alert">
-    <%= render "devise/shared/toast_error" %>
-  </div>
-  <h2 class="text-center form-group">Login</h2>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-group position-form">
-      <%= f.text_field :email, autofocus: true, class: "form-control", required: :required, autocomplete: "email" %>
-      <%= f.label :email, class: "form-control-placeholder" %>
+  <div class="container">
+    <div class="alert">
+      <%= render "devise/shared/toast_error" %>
     </div>
-    <div class="form-group position-form">
-      <%= f.password_field :password, class: "form-control", required: :required, autocomplete: "current-password" %>
-      <%= f.label :password, class: "form-control-placeholder" %>
-    </div>
+    <h2 class="text-center form-group">Login</h2>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-group position-form">
+        <%= f.text_field :email, autofocus: true, class: "form-control", required: :required, autocomplete: "email" %>
+        <%= f.label :email, class: "form-control-placeholder" %>
+      </div>
+      <div class="form-group position-form">
+        <%= f.password_field :password, class: "form-control", required: :required, autocomplete: "current-password" %>
+        <%= f.label :password, class: "form-control-placeholder" %>
+      </div>
 
-    <div class="lateral-links"> 
-      <div class="form-group form-check">
-        <div class="check-box-remember">
-          <% if devise_mapping.rememberable? %>
-            <%= f.check_box :remember_me, class: "form-check-input", id: "check-remember" %>
-            <%= f.label "Lembre-se de mim", class: "form-check-label", for: "check-remember" %>
-          <% end %>
+      <div class="lateral-links"> 
+        <div class="form-group form-check">
+          <div class="check-box-remember">
+            <% if devise_mapping.rememberable? %>
+              <%= f.check_box :remember_me, class: "form-check-input", id: "check-remember" %>
+              <%= f.label "Lembre-se de mim", class: "form-check-label", for: "check-remember" %>
+            <% end %>
+          </div>
+        </div>
+        <div class="link-forgot">
+          <%= render "devise/shared/link_forgot_password" %>
         </div>
       </div>
-      <div class="link-forgot">
-        <%= render "devise/shared/link_forgot_password" %>
+      
+      <div class="form-group">
+        <%= f.submit "Login", class: "btn btn-primary btn-block font-weight-bold" %><br>
+        <p class="text-center"> ou </p>
       </div>
-    </div>
-    
-    <div class="form-group">
-      <%= f.submit "Login", class: "btn btn-primary btn-block font-weight-bold" %><br>
-      <p class="text-center"> ou </p>
-    </div>
-    <div class="form-group">
-      <%= render "devise/shared/link_register" %>
-    </div>
-  <% end %>
+      <div class="form-group">
+        <%= render "devise/shared/link_register" %>
+      </div>
+    <% end %>
+  </div>
 </div>
