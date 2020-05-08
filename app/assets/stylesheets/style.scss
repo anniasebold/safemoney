@@ -96,8 +96,14 @@ a:hover {
   margin-bottom: 5px;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+}
 
-
+.badge-info {
+  background-color: #708090;
+}
 
 // Small devices
 $screen-sm-min: 576px;

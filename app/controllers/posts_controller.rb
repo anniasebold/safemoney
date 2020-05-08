@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def new
     @post = Post.new
   end
@@ -18,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @post = Post.order(created_at: :desc)
+    @pagy, @post = pagy(Post.ordered_by_created_at)
   end
 
   private 
