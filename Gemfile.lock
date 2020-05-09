@@ -290,13 +290,14 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
-  java-
+  java
   ruby
   x64-mingw32
   x86-mingw32
   x86-mswin32
 
 DEPENDENCIES
+  activestorage (~> 5.2, >= 5.2.1)
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.3.1)
   bootstrap-select-rails (~> 1.6, >= 1.6.3)

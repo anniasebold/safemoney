@@ -1,7 +1,40 @@
 $montserrat: 'Montserrat', sans-serif;
 
+:root {
+  margin-top: 50px;
+}
+
 .container {
   font-family: $montserrat
+}
+
+// NAVBAR
+
+.navbar-dark .navbar-nav .nav-link, .navbar-brand {
+  color: white;
+  font-weight: bold;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  margin-right: 5px;
+}
+
+.navbar-dark {
+  padding: 10px 10px;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #9BF0E1;
+}
+
+.divisor {
+  width: 1px;
+  background: white;
+  margin: 12px 15px;
+}
+
+.navbar-dark .navbar-toggler {
+  border-color: rgba(255,255,255,0.5);
 }
 
 // LOGIN E CADASTRO
