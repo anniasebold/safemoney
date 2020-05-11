@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
     <div class="container">
       <%= link_to "SafeMoney", root_path, class: "navbar-brand" %>
       <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
@@ -14,8 +14,16 @@
         <li class="nav-item">
           <%= link_to "Favoritos", root_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Categorias", root_path, class: "nav-link" %>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" id="dropdownNavbar" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Postagem
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownNavbar">
+            <%= link_to "Nova Postagem", new_post_path, class: "dropdown-item" %>
+            <%= link_to "Minhas Postagens", root_path, class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "Categorias", root_path, class: "dropdown-item" %>
+          </div>
         </li>
         <li class="nav-item divisor"></li>
         <li class="nav-item">

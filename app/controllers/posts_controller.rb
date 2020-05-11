@@ -19,6 +19,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    # @categories = Category.search(params[:search])
     @pagy, @post = pagy(Post.ordered_by_created_at)
   end
 
