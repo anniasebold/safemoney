@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def create 
+  def create
     @post = current_user.posts.new(post_params)
 
     if @post.save 
@@ -19,8 +19,11 @@ class PostsController < ApplicationController
   end
 
   def index
-    # @categories = Category.search(params[:search])
-    @pagy, @post = pagy(Post.ordered_by_created_at)
+    if params[:search].present?
+      @pagy, @post = pagy(Post.search(params[:search]))
+    else
+      @pagy, @post = pagy(Post.ordered_by_created_at)
+    end
   end
 
   private 
