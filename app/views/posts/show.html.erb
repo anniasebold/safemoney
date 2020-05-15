@@ -16,8 +16,29 @@
         <% end %>
 
         <hr>
-        <p>Postado em <%= l(@post.created_at, format: :long) %></p>
+        <% if @post.user.email == current_user.email %>
+          <div class="d-flex">
+            <div class="mr-auto align-self-center mt-2">
+              <p>Ações</p>  
+            </div>
+            <%= link_to "Editar", edit_post_path(@post.id), class: "btn btn-light align-self-center p-2 ml-2 mr-3 " %>
+            <%= link_to "Excluir", post_path, method: :delete, class: "btn btn-danger align-self-center p-2" %>
+          </div>
+        <% else %>
+          <div class="d-flex">
+            <div class="mr-auto align-self-center mt-2">
+              <p>Ações</p>
+            </div>
+            <%= link_to "Reportar", root_path, class: "btn btn-danger align-self-center p-2 ml-2" %>
+          </div>
+        <% end %>
         <hr>
+
+        <hr>
+          <p>Postado em <%= l(@post.created_at, format: :long) %></p>
+        <hr>
+
+
 
         <p class="lead">
           <%= @post.text %>
