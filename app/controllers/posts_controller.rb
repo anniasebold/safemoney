@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
 
     if @post.save 
-      redirect_to @post
+      redirect_to @post 
     else
       render :new
     end
@@ -41,10 +41,12 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
+    post = Post.find_by_id(params[:id])
+    post_categories = [post.post_category_ids]
+    PostCategory.destroy(post_categories)
+    Post.destroy(post.id)
 
-    redirect_to :index
+    redirect_to root_url 
   end
 
 
