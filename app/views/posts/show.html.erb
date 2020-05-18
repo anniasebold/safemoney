@@ -38,11 +38,15 @@
           <p>Postado em <%= l(@post.created_at, format: :long) %></p>
         <hr>
 
+        <div class="image-width">
+          <%= image_tag(@post.image, style:'width:100%') if @post.image.attached? %>
+        </div>
 
-
-        <p class="lead">
-          <%= @post.text %>
-        </p>
+        <div>
+          <p class="lead">
+            <%= @post.text %>
+          </p>
+        </div>
 
       </div>
     </div>

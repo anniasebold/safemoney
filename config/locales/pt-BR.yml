@@ -43,6 +43,7 @@ pt-BR:
         title: Título
         text: Texto
         user: Usuário
+        image: Imagem
         category: Categoria
         categories: Categorias
         created_at: Criado em

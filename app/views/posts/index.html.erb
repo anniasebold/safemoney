@@ -10,13 +10,15 @@
 
         <% @post.each do |post| %>
           <div class="card mb-4">
-            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
             <!-- Card header -->
             <div class="card-header">
               <h2 class="card-title"><%= post.title %></h2>
               <% post.categories.each do |categorie| %>
                 <%= link_to categorie.name, root_path, class: 'badge badge-info'%>
               <% end %>
+              <div class="image-width">
+                <%= image_tag(post.image, style:'width:100%') if post.image.attached? %>  
+              </div>
             </div>
             <!-- Card body -->
             <div class="card-body">
@@ -37,9 +39,7 @@
                   <%= link_to "Reportar", root_path, class: "btn btn-danger align-self-center p-2 ml-2" %>
                 <% end %>
               </div>
-
             </div>
-
             <!-- Card footer -->
             <div class="card-footer text-muted">
                 Postado em <%= l(post.created_at, format: :long) %>
@@ -48,12 +48,10 @@
             </div>
           </div>
         <% end %>
-
         <!-- Pagination -->
         <div class="pagination">
           <%== pagy_bootstrap_nav(@pagy) %>
         </div>
-
       </div>
 
       <div class="col-md-4">
