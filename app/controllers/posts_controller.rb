@@ -42,8 +42,6 @@ class PostsController < ApplicationController
 
   def destroy
     post = Post.find_by_id(params[:id])
-    post_categories = [post.post_category_ids]
-    PostCategory.destroy(post_categories)
     Post.destroy(post.id)
 
     redirect_to root_url 
