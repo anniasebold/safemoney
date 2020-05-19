@@ -38,8 +38,8 @@
           <p>Postado em <%= l(@post.created_at, format: :long) %></p>
         <hr>
 
-        <div class="image-width">
-          <%= image_tag(@post.image, style:'width:100%') if @post.image.attached? %>
+        <div class="image-show">
+          <%= image_tag(@post.image, class: "img-fluid") if @post.image.attached? %>
         </div>
 
         <div>

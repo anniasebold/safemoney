@@ -3,6 +3,7 @@
   <div class="container">
     <div class="row">
       
+      <!-- Principal Body -->
       <div class="col-md-8">
         <h1 class="my-4">
           Todas as Postagens
@@ -16,12 +17,10 @@
               <% post.categories.each do |categorie| %>
                 <%= link_to categorie.name, root_path, class: 'badge badge-info'%>
               <% end %>
-              <div class="image-width">
-                <%= image_tag(post.image, style:'width:100%') if post.image.attached? %>  
-              </div>
             </div>
             <!-- Card body -->
             <div class="card-body">
+                <%= image_tag(post.image, class: "img-fluid") if post.image.attached? %>  
               <p class="card-text"><%= post.text.truncate(250) %></p>
               
               <!-- Btn Read More -->
@@ -54,13 +53,13 @@
         </div>
       </div>
 
+      <!-- Side Body -->
       <div class="col-md-4">
 
         <!-- Card Search -->
         <div class="card my-4">
           <h5 class="card-header">Buscar</h5>
           <div class="card-body"> 
-
             <div class="input-group">
               <%= form_tag posts_path, method: :get, class: "input-group" do %>
                 <%= text_field_tag :search, params[:search], 

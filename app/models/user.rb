@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   extend Enumerize
   
+  has_one_attached :avatar
   has_many :posts
   validates_presence_of :email, :name, :education, :password
   
