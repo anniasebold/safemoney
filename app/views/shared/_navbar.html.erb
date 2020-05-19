@@ -6,11 +6,11 @@
       </button>
 
     <div class="collapse navbar-collapse" id="nav-principal">
-    <% if current_user.present? %>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <%= link_to "Sobre nós", home_about_path, class: "nav-link" %>
         </li>
+      <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to "Favoritos", root_path, class: "nav-link" %>
         </li>
@@ -27,26 +27,21 @@
         </li>
         <li class="nav-item divisor"></li>
         <li class="nav-item">
-          <%= link_to "Perfil", root_path, class: "nav-link" %>
+          <%= link_to current_user.name, user_path(current_user.id), class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Deslogar", destroy_user_session_path, method: :delete , class: "nav-link" %>
         </li>
-      </ul>
-    <% else %>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <%= link_to "Sobre nós", home_about_path, class: "nav-link" %>
-        </li>
+      <% else %>
         <li class="nav-item divisor"></li>
         <li class="nav-item">
           <%= link_to "Cadastrar", new_user_registration_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Entrar", new_user_session_path, class: "nav-link" %>
-      </li>
+        </li>
+      <% end %>
       </ul>
-    <% end %>
     </div>
   </div>
 </nav>

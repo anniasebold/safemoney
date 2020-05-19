@@ -7,7 +7,7 @@
 
         <p class="lead">
           por
-          <%= link_to @post.user.name, root_path %>
+          <%= link_to @post.user.name, user_path(@post.user.id) %>
         </p>
 
         <%= t('activerecord.attributes.post.categories') %>

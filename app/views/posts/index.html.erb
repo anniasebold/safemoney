@@ -43,7 +43,7 @@
             <div class="card-footer text-muted">
                 Postado em <%= l(post.created_at, format: :long) %>
                   por
-                <%= link_to post.user.name, root_path %>
+                <%= link_to post.user.name, user_path(post.user.id) %>
             </div>
           </div>
         <% end %>
