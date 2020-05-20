@@ -1,50 +1,45 @@
-<div id="new-post" class="d-flex">
-  <div class="container align-self-center">
-    <h1>Criar Postagem</h1>
-      <% if @post.errors.any? %>
-        <div id="error-explanation" class="col-md-6 alert alert-danger">
-          <ul>
-            <% @post.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
+<% if @post.errors.any? %>
+  <div id="error-explanation" class="col-md-6 alert alert-danger">
+    <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
       <% end %>
-
-    <%= form_for @post do |post| %>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <%= post.label :categories %> 
-            <%= post.select(:category_ids, Category.all.collect{ |c| [c.name, c.id] }, { }, multiple: true, class: "form-control" ) %>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <%= post.label :image %>
-            <%= post.file_field :image, class: "form-control-file" %>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <%= post.label :title %>
-            <%= post.text_field :title, class: "form-control" %>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <%= post.label :text %>
-            <%= post.text_area :text, class: "form-control", size: "60x12" %> 
-          </div>
-        </div>
-      </div>
-      <%= post.submit "Criar Postagem", class: "btn btn-info col-md-6 font-weight-bold" %>
-    <% end %>
+    </ul>
   </div>
-</div>
+<% end %>
+
+<%= form_for @post do |post| %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= post.label :categories %> 
+        <%= post.select(:category_ids, Category.all.collect{ |c| [c.name, c.id] }, { }, multiple: true, class: "form-control" ) %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= post.label :image %>
+        <%= post.file_field :image, class: "form-control-file" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= post.label :title %>
+        <%= post.text_field :title, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= post.label :text %>
+        <%= post.text_area :text, class: "form-control", size: "60x12" %> 
+      </div>
+    </div>
+  </div>
+  <%= post.submit "Criar Postagem", class: "btn btn-info col-md-6 font-weight-bold" %>
+<% end %>

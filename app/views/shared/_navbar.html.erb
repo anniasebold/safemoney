@@ -20,7 +20,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownNavbar">
             <%= link_to "Nova Postagem", new_post_path, class: "dropdown-item" %>
-            <%= link_to "Minhas Postagens", root_path, class: "dropdown-item" %>
+            <%= link_to "Minhas Postagens",  details_user_path(current_user.id), class: "dropdown-item" %>
             <div class="dropdown-divider"></div>
             <%= link_to "Categorias", root_path, class: "dropdown-item" %>
           </div>

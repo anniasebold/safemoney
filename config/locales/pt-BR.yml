@@ -28,6 +28,7 @@ pt-BR:
       user:
         password: Senha
         password_confirmation: Confirmação de Senha
+        current_password: Senha atual
         email: Email
         name: Nome
         education: Formação Acadêmica

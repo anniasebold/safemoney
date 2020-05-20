@@ -181,7 +181,12 @@ a:hover {
   margin-bottom: 20px;
 }
 
-
+.image-avatar-edit {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
 
 // Small devices
 $screen-sm-min: 576px;
