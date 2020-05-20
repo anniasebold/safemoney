@@ -5,5 +5,6 @@ class UsersController < ApplicationController
 
   def details
     @user = User.find_by_id(params[:id])
+    @post = @user.posts.order(created_at: :desc)
   end
 end
