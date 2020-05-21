@@ -24,6 +24,8 @@ class PostsController < ApplicationController
     else
       @pagy, @post = pagy(Post.ordered_by_created_at)
     end
+
+    @categories = Category.order(created_at: :desc)
   end
 
   def edit

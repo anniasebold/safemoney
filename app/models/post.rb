@@ -12,11 +12,7 @@ class Post < ApplicationRecord
   }
 
   scope :search, -> (search) {
-    joins(:categories).where('
-             posts.title LIKE :search
-             OR posts.text LIKE :search
-             OR categories.name LIKE :search', 
-             search: "%#{search}%")
+    where('posts.title LIKE :search OR posts.text LIKE :search', search: "%#{search}%")
   }
   
 end
