@@ -13,7 +13,7 @@
     <div class="col-md-6">
       <div class="form-group">
         <%= post.label :categories %> 
-        <%= post.select(:category_ids, Category.all.collect{ |c| [c.name, c.id] }, { }, multiple: true, class: "form-control" ) %>
+        <%= post.select(:category_ids, categories_for_select, { }, multiple: true, class: "form-control" ) %>
       </div>
     </div>
   </div>

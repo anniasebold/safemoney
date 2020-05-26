@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   extend Enumerize
   
-  has_many :posts
+  has_many :posts, dependent: :destroy
+  has_many :reports, dependent: :destroy
+
   validates_presence_of :email, :name, :education
   
   enumerize :education, in: { elementary_school_incomplete: 0, elementary_school_complete: 1, high_school_incomplete: 2, 

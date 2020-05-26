@@ -13,6 +13,11 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:show]
 
-  resources :posts, only: [:new ,:create, :index, :show, :edit, :update, :destroy]
+  resources :posts, only: [:new ,:create, :index, :show, :edit, :update, :destroy] do
+    member do
+      resources :reports, only: [:new, :create]
+    end
+  end
+
   root 'posts#index'
 end

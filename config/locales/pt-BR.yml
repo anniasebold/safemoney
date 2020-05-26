@@ -10,6 +10,14 @@ pt-BR:
           graduation_complete: Graduação Completa
           postgraduate_incomplete: Pós-graduação Incompleta
           postgraduate_complete: Pós-graduação Completa
+    report:
+      reason:
+        racism: Racismo
+        homophobia: Homofobia
+        hate_speech: Discurso de ódio
+        plagiary: Plágio
+        out_of_context: Postagem fora de contexto
+        others: Outros motivos
   activerecord:
     models:
       user:
@@ -24,6 +32,9 @@ pt-BR:
       post_category:
         one: Categoria Postagem
         other: Categorias Postagens
+      report:
+        one: Denúncia
+        other: Denúncias
     attributes:
       user:
         password: Senha
@@ -34,10 +45,16 @@ pt-BR:
         education: Formação Acadêmica
         created_at: Criado em
         updated_at: Atualizado em
+        post: Postagem
+        posts: Postagens
+        report: Denúncia
+        reports: Denúncias
       category:
         name: Nome
         created_at: Criado em
         updated_at: Atualizado em
+        post: Postagem
+        posts: Postagens
         post_category: Categoria Postagem
         post_categories: Categorias Postagens
       post:
@@ -48,10 +65,21 @@ pt-BR:
         category: Categoria
         categories: Categorias
         created_at: Criado em
+        post_category: Categoria Postagem
+        post_categories: Categorias Postagens
         updated_at: Atualizado em
+        report: Denúncia
+        reports: Denúncias
       post_category:
         category: Categoria
         post: Postagem
+      report: 
+        reason: Motivo(s)
+        description: Descrição
+        post: Postagem
+        posts: Postagens
+        user: Usuário
+        users: Usuários
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

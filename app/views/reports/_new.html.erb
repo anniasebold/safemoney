@@ -1,0 +1,24 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="myModalLabel">Faça uma denúncia</h4>
+</div>
+<div class="modal-body">
+  <%= form_for @report do |report| %>
+    <div class="form-group row">
+      <%= report.label :reason, class: "col-lg-3 col-form-label form-control-label"  %> 
+      <div class="col-lg-9">
+        <%= report.select :reason, options_for_select(Report.reason.options), {}, { class: "form-control" } %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= report.label :description, class: "col-lg-3 col-form-label form-control-label"  %> 
+      <div class="col-lg-9">
+        <%= report.text_area :description, class: "form-control" %>
+      </div>
+    </div>
+    <%= report.hidden_field :post_id, :value => @post.id %>
+    <hr>
+    <div class="d-flex flex-row-reverse">
+      <%= report.submit "Enviar Denúncia", class: "btn btn-danger p-2" %>
+    </div>
+  <% end %>
+</div>
