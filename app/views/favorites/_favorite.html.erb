@@ -1,0 +1,5 @@
+<% if @post.favorites.ids.include? current_user.favorites.ids  %>
+  <%= link_to "Desfavoritar", favorite_path(@post.id), class: "btn btn-light align-self-center p-2 ml-2 mr-3", method: :destroy %>
+<% else %>
+  <%= link_to "Favoritar", new_favorite_path(@post.id), class: "btn btn-light align-self-center p-2 ml-2 mr-3" %>
+<% end %>

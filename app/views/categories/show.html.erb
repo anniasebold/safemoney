@@ -13,49 +13,7 @@
         </div> 
 
       <% if @post.present? %>
-        <% @post.each do |post| %>
-          <div class="card mb-4">
-            <!-- Card header -->
-            <div class="card-header">
-              <h2 class="card-title"><%= post.title %></h2>
-              <% post.categories.each do |categorie| %>
-                <%= link_to categorie.name, root_path, class: 'badge badge-info'%>
-              <% end %>
-            </div>
-            <!-- Card body -->
-            <div class="card-body">
-                <%= image_tag(post.image, class: "img-fluid") if post.image.attached? %>  
-              <p class="card-text"><%= post.text.truncate(250) %></p>
-              
-              <!-- Btn Read More -->
-              <div class="d-flex">
-                <div class="mr-auto align-self-center p-2">
-                  <%= link_to post_path(post.id), class:"btn btn-primary" do %>
-                    Leia mais
-                    <i class="fas fa-arrow-right"></i>
-                  <% end %>
-                </div>
-                <% if post.user.email == current_user.email %>
-                  <%= link_to "Editar", edit_post_path(post.id), class: "btn btn-light align-self-center p-2 ml-2 mr-3 " %>
-                  <%= link_to "Excluir", post_path(post.id), method: :delete, class: "btn btn-danger align-self-center p-2", data: {confirm: "Tem certeza que deseja remover a postagem #{post.title}?"} %>
-                <% else %>
-                  <%= link_to "Reportar", new_report_path(post.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: "btn btn-danger align-self-center p-2 ml-2"} %>
-                  <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                    <div class="modal-content"></div>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-            <!-- Card footer -->
-            <div class="card-footer text-muted">
-                Postado em <%= l(post.created_at, format: :long) %>
-                  por
-                <%= link_to post.user.name, user_path(post.user.id) %>
-            </div>
-          </div>
-        <% end %>
+        <%= render "shared/card-post" %>
       <% else %>
         <div class="alert alert-danger">
           Essa categoria não possui postagens ainda. Aproveite e faça uma postagem sobre <%= @categorie.name %>!
@@ -70,23 +28,21 @@
         <!-- Categories Widget -->
         <div class="card my-4">
           <h5 class="card-header">Categorias</h5>
-            <div class="row">
-              <div class="col-lg-12">
-                <ul class="list-group">
-                  <% @categories.each do |categorie| %>
-                    <% if categorie.id == @categorie.id %>
-                     <%= link_to categorie.name, category_path(categorie.id), class: "list-group-item list-group-item-action active" %>
-                    <% else %>
-                      <%= link_to categorie.name, category_path(categorie.id), class: "list-group-item list-group-item-action" %>
-                    <% end %>
+          <div class="row">
+            <div class="col-lg-12">
+              <ul class="list-group">
+                <% @categories.each do |categorie| %>
+                  <% if categorie.id == @categorie.id %>
+                   <%= link_to categorie.name, category_path(categorie.id), class: "list-group-item list-group-item-action active" %>
+                  <% else %>
+                    <%= link_to categorie.name, category_path(categorie.id), class: "list-group-item list-group-item-action" %>
                   <% end %>
-                </ul>
-              </div>
+                <% end %>
+              </ul>
             </div>
+          </div>
         </div>
-
       </div>
-
     </div>
   </div>
 </div>

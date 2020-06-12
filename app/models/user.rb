@@ -3,6 +3,7 @@ class User < ApplicationRecord
   
   has_many :posts, dependent: :destroy
   has_many :reports, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   validates_presence_of :email, :name, :education
   

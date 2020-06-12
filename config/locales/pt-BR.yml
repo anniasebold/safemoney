@@ -35,6 +35,9 @@ pt-BR:
       report:
         one: Denúncia
         other: Denúncias
+      favorite:
+        one: Favorito
+        other: Favoritos
     attributes:
       user:
         password: Senha
@@ -80,6 +83,11 @@ pt-BR:
         posts: Postagens
         user: Usuário
         users: Usuários
+      favorite:
+        user: Usuário
+        users: Usuários
+        post: Postagem
+        post: Postagens
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

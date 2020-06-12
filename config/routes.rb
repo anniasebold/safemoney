@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+  Rails.application.routes.draw do
   get 'categories/show'
   get 'categories/index'
   get 'home/about'
@@ -16,8 +16,10 @@ Rails.application.routes.draw do
   resources :posts, only: [:new ,:create, :index, :show, :edit, :update, :destroy] do
     member do
       resources :reports, only: [:new, :create]
+      resources :favorites, only: [:new, :create, :destroy]
     end
   end
+
 
   root 'posts#index'
 end

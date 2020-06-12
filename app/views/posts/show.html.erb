@@ -12,7 +12,7 @@
 
         <%= t('activerecord.attributes.post.categories') %>
         <% @post.categories.each do |categorie|  %>
-          <%= link_to categorie.name, root_path, class: 'badge badge-info'  %>
+          <%= link_to categorie.name, category_path(categorie.id), class: 'badge badge-info'  %>
         <% end %>
 
         <hr>
@@ -21,7 +21,7 @@
             <div class="mr-auto align-self-center mt-2">
               <p>Ações</p>  
             </div>
-            <%= link_to "Editar", edit_post_path(@post.id), class: "btn btn-light align-self-center p-2 ml-2 mr-3 " %>
+            <%= link_to "Editar", edit_post_path(@post.id), class: "btn btn-light align-self-center p-2 ml-2 mr-3" %>
             <%= link_to "Excluir", post_path(@post.id), method: :delete, class: "btn btn-danger align-self-center p-2", data: {confirm: "Tem certeza que deseja remover a postagem #{@post.title}?"} %>
           </div>
         <% else %>
@@ -29,6 +29,8 @@
             <div class="mr-auto align-self-center mt-2">
               <p>Ações</p>
             </div>
+            <%= render "favorites/favorite" %>
+
             <%= link_to "Reportar", new_report_path(@post.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: "btn btn-danger align-self-center p-2 ml-2"} %>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">

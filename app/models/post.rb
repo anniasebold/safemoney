@@ -6,6 +6,7 @@ class Post < ApplicationRecord
   has_many :categories, through: :post_categories
 
   has_many :reports, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   validates_presence_of :title, :text, :categories
   validates :title, length: { minimum: 5, maximum: 255 }
