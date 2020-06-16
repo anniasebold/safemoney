@@ -12,11 +12,12 @@
   end
 
   resources :categories, only: [:show]
+  get 'favorites/update'
+  get 'favorites/index'
 
   resources :posts, only: [:new ,:create, :index, :show, :edit, :update, :destroy] do
     member do
       resources :reports, only: [:new, :create]
-      resources :favorites, only: [:new, :create, :destroy]
     end
   end
 

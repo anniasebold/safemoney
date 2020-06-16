@@ -1,0 +1,63 @@
+<% @title="SafeMoney" %>
+<div id="index-post">
+  <div class="container">
+    <div class="row">
+      
+      <!-- Principal Body -->
+      <div class="col-md-8">
+        <h1 class="my-4">
+          Postagens Favoritadas
+        </h1>
+
+        <% if current_user.favorites.exists? %>
+          <% current_user.favorites.each do |favorite| %>
+            <div class="card mb-4">
+              <!-- Card header -->
+              <div class="card-header">
+                <div class="d-flex">
+                  <div class="mr-auto p-2">
+                  <h2 class="card-title"><%= favorite.post.title %></h2>
+                  </div>
+                </div>
+                  <% favorite.post.categories.each do |categorie| %>
+                    <%= link_to categorie.name, category_path(categorie.id), class: 'badge badge-info'%>
+                  <% end %>
+              </div>
+              <!-- Card body -->
+              <div class="card-body">
+                  <%= image_tag(favorite.post.image, class: "img-fluid") if favorite.post.image.attached? %>  
+                <p class="card-text"><%= favorite.post.text.truncate(250) %></p>
+                
+                <!-- Btn Read More -->
+                <div class="d-flex">
+                  <div class="mr-auto align-self-center p-2">
+                    <%= link_to post_path(favorite.post.id), class:"btn btn-primary" do %>
+                      Leia mais
+                      <i class="fas fa-arrow-right"></i>
+                    <% end %>
+                  </div>
+                    <%= link_to "Reportar", new_report_path(favorite.post.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: "btn btn-danger align-self-center p-2 ml-2"} %>
+                    <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                      <div class="modal-content"></div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <!-- Card footer -->
+              <div class="card-footer text-muted">
+                  Postado em <%= l(favorite.post.created_at, format: :long) %>
+                    por
+                  <%= link_to favorite.post.user.name, user_path(favorite.post.user.id) %>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="alert alert-danger">
+            Você ainda não possui Postagens Favoritadas, favorite postagens legais para ler mais tarde!
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

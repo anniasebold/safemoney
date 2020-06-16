@@ -29,7 +29,7 @@
             <div class="mr-auto align-self-center mt-2">
               <p>Ações</p>
             </div>
-            <%= render "favorites/favorite" %>
+            <%= link_to favorite_text, favorites_update_path(post: @post), id: 'favorite_link', remote: :true, class: "btn btn-light align-self-center p-2 ml-2 mr-3" %>
 
             <%= link_to "Reportar", new_report_path(@post.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: "btn btn-danger align-self-center p-2 ml-2"} %>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

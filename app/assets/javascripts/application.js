@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery3
+//= requite jquery_ujs
 //= require popper
 //= require bootstrap

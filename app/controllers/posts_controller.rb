@@ -15,6 +15,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @favorite_exists = Favorite.where(post: @post, user: current_user) == [] ? false : true
     @post = Post.find(params[:id])
   end
 

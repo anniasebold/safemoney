@@ -1,32 +1,22 @@
 class FavoritesController < ApplicationController
 
-  def new
-    favorite = Favorite.new
+  def index 
   end
 
-  def create
-    post = Post.find(params[:post_id])
-    favorite = current_user.favorites.new(favorite_params)
-
-    if @favorite.save
-      redirect_to root_url
+  def update
+    favorite = Favorite.where(post: Post.find(params[:post]), user: current_user)
+    if favorite == []
+      Favorite.create(post: Post.find(params[:post]), user: current_user)
+      @favorite_exists = true
     else
-      render :new
+      favorite.destroy_all
+      @favorite_exists = false
+    end
+
+    respond_to do |format|
+      format.html {}
+      format.js {}
     end
 
   end
-
-  def destroy
-    post = Post.find(params[:post_id])
-    favorite = current_user.favorites.find(params[:id])
-
-    redirect_to root_url
-  end
-
-  private
-
-  def favorite_params
-    params.require(:favorite).permit(:favorite, :post_id)
-  end
-
 end
