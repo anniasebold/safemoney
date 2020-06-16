@@ -52,3 +52,4 @@ production:
   database: safemoney_production
   username: safemoney
   password: <%= ENV['SAFEMONEY_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
